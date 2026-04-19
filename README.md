@@ -61,7 +61,7 @@ docs/
   DOC_050.pdf
 ```
 
-> `docs/` is git-ignored (the corpus is large and lives elsewhere). See `docs/README.md` for the corpus download link.
+> `docs/` and `chroma_db/` are both checked into the repo so the deployed Streamlit Cloud app ships with a populated vector store and can re-run ingestion on demand. The full corpus is ~15 MB — small enough to vendor. If you fork this repo with a different corpus, re-run ingestion locally before committing so the vendored DB matches the PDFs.
 
 ### 4. Ingest documents
 
@@ -105,8 +105,8 @@ lexi-agent/
 │   └── eval_results.json       # Results from last eval run
 ├── ui/
 │   └── components.py           # All Streamlit rendering logic
-├── docs/                       # Place PDF judgments here
-├── chroma_db/                  # Auto-created on first ingest
+├── docs/                       # PDF judgments (committed — vendored corpus)
+├── chroma_db/                  # Prebuilt vector store (committed — rebuilt by ingestion.ingest)
 ├── ADR.md                      # Architecture Decision Record
 ├── requirements.txt
 └── .env                        # GROQ_API_KEY + GEMINI_API_KEY — not committed
@@ -175,9 +175,7 @@ All modules import `get_logger(__name__)` from `logger.py`. A single `configure_
 ---
 
 ## Hosted URL
-
-> **TODO:** replace with your live Streamlit Cloud URL after deploying (see §Deployment below).
-> Format: `https://<your-app-name>.streamlit.app`
+`https://lexi-agent-vfacgxca56uxaqghz86ok3.streamlit.app/`
 
 ---
 
@@ -193,8 +191,8 @@ All modules import `get_logger(__name__)` from `logger.py`. A single `configure_
    GEMINI_API_KEY = "your_free_gemini_key"
    ```
    (Groq: <https://console.groq.com/keys> · Gemini: <https://aistudio.google.com/apikey>.)
-6. Either commit the prebuilt `chroma_db/` (run `python -m ingestion.ingest` locally first, then `git add -f chroma_db/`) **or** the app will build it on first load (~3 min cold start).
-7. Deploy. Copy the resulting URL into the **Hosted URL** section above.
+6. `docs/` and `chroma_db/` are already tracked in this repo, so the deployed app boots with a populated vector store immediately — no ingestion needed for queries to work. The **Ingest Docs** button on the sidebar will also work because the source PDFs are present.
+7. Deploy.
 
 > The repo ships a `.streamlit/config.toml` that disables Streamlit's file watcher. The watcher otherwise walks every submodule of `transformers` (pulled in by `sentence-transformers`) and logs a traceback for each vision model that requires `torchvision` — which this project doesn't install, because only text embeddings are used. These tracebacks are harmless but noisy; the config turns them off.
 

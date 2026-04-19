@@ -1,8 +1,5 @@
 .env
 .streamlit/secrets.toml
-chroma_db/
-docs/
-!docs/README.md
 __pycache__/
 *.pyc
 .DS_Store
