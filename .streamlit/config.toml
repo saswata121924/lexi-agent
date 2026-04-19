@@ -1,0 +1,18 @@
+# Streamlit runtime configuration.
+#
+# The file watcher is disabled because it eagerly walks every imported module
+# (for hot-reload), and when it reaches `transformers` — pulled in transitively
+# by sentence-transformers — it tries to import every submodule including
+# vision models (yolos, vivit, zoedepth) that require `torchvision`.
+# `torchvision` is ~200 MB and not needed for text-only embeddings, so we
+# intentionally don't install it; the watcher then logs a traceback per failed
+# submodule at startup. Disabling the watcher silences those warnings and
+# speeds up cold start. We don't need hot-reload on Streamlit Cloud anyway —
+# the server restarts on every git push.
+[server]
+fileWatcherType = "none"
+
+# Suppress Streamlit's update-available banner and usage-stats ping — keeps
+# the deployed UI clean and avoids an outbound request at startup.
+[browser]
+gatherUsageStats = false

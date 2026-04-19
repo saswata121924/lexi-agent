@@ -185,15 +185,18 @@ All modules import `get_logger(__name__)` from `logger.py`. A single `configure_
 
 1. Push this repo to GitHub.
 2. Sign in to <https://share.streamlit.io> with GitHub → **New app**.
-3. Pick the repo, `main` branch, main file `app.py`, Python 3.11.
-4. Under **Advanced settings → Secrets** paste both keys:
+3. Pick the repo, `main` branch, main file `app.py`.
+4. Under **Advanced settings → Python version** choose **3.11** (do **not** leave it on the newest option — Python 3.14 triggers deprecation-warning tracebacks from `transformers`' lazy-import system that flood the logs).
+5. Under **Advanced settings → Secrets** paste both keys:
    ```
    GROQ_API_KEY = "your_free_groq_key"
    GEMINI_API_KEY = "your_free_gemini_key"
    ```
    (Groq: <https://console.groq.com/keys> · Gemini: <https://aistudio.google.com/apikey>.)
-5. Either commit the prebuilt `chroma_db/` (run `python -m ingestion.ingest` locally first, then `git add -f chroma_db/`) **or** the app will build it on first load (~3 min cold start).
-6. Deploy. Copy the resulting URL into the **Hosted URL** section above.
+6. Either commit the prebuilt `chroma_db/` (run `python -m ingestion.ingest` locally first, then `git add -f chroma_db/`) **or** the app will build it on first load (~3 min cold start).
+7. Deploy. Copy the resulting URL into the **Hosted URL** section above.
+
+> The repo ships a `.streamlit/config.toml` that disables Streamlit's file watcher. The watcher otherwise walks every submodule of `transformers` (pulled in by `sentence-transformers`) and logs a traceback for each vision model that requires `torchvision` — which this project doesn't install, because only text embeddings are used. These tracebacks are harmless but noisy; the config turns them off.
 
 Alternative free hosts (in priority order): Hugging Face Spaces (Streamlit SDK) → Render Free Web Service → Fly.io → Railway trial credit.
 
