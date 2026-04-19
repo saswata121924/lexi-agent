@@ -1,0 +1,514 @@
+{
+  "summary": {
+    "n_cases": 5,
+    "n_successful": 4,
+    "avg_precision": 0.483,
+    "avg_recall": 0.918,
+    "avg_reasoning_quality": 0.675,
+    "avg_adverse_identification": 0.8,
+    "avg_faithfulness": 0.6,
+    "avg_citation_verification": 0.0,
+    "avg_overall_score": 0.58,
+    "avg_latency_seconds": 29.65
+  },
+  "results": [
+    {
+      "case_id": "case_01_insurer_liability",
+      "description": "Core insurer liability argument for unlicensed driver case",
+      "route": "precedent_research",
+      "n_retrieved": 21,
+      "n_supporting": 5,
+      "n_adverse": 2,
+      "precision_score": 0.8,
+      "precision_reasoning": "Recovered via regex (JSON malformed): Could not extract valid JSON: line 1 column 1 (char 0)",
+      "recall_score": 0.923,
+      "recall_reasoning": "Oracle: ['doc_006', 'doc_011', 'doc_018', 'doc_021', 'doc_023', 'doc_024', 'doc_025', 'doc_027', 'doc_029', 'doc_031', 'doc_032', 'doc_034', 'doc_035'] | Agent: ['doc_001', 'doc_003', 'doc_005', 'doc_006', 'doc_008', 'doc_014', 'doc_017', 'doc_018', 'doc_021', 'doc_023', 'doc_024', 'doc_025', 'doc_027', 'doc_029', 'doc_031', 'doc_032', 'doc_033', 'doc_034', 'doc_035', 'doc_042', 'doc_043'] | Overlap: ['doc_006', 'doc_018', 'doc_021', 'doc_023', 'doc_024', 'doc_025', 'doc_027', 'doc_029', 'doc_031', 'doc_032', 'doc_034', 'doc_035'] | Recall = 12/13 = 0.92",
+      "reasoning_quality_score": 0.9,
+      "reasoning_quality_feedback": "Recovered via regex (JSON malformed): Could not extract valid JSON: line 1 column 1 (char 0)",
+      "adverse_id_score": 0.8,
+      "adverse_id_reasoning": "good 'adverse identification' with 'why' and 'how to distinguish' explained",
+      "faithfulness_score": 0.8,
+      "faithfulness_reasoning": "8 supported, 0 partially supported, 2 unsupported out of 10 claims. Score = 0.80",
+      "claim_verdicts": [
+        {
+          "claim": "doc_027 holds that a driver's lack of licence does not affect third-party compensation",
+          "verdict": "supported",
+          "source_chunk_id": "doc_027",
+          "reasoning": "Supreme Court decision"
+        },
+        {
+          "claim": "doc_006 states the Motor Vehicles Act makes third-party insurance compulsory",
+          "verdict": "supported",
+          "source_chunk_id": "doc_006",
+          "reasoning": "Legislative intent"
+        },
+        {
+          "claim": "doc_035 places burden of proof on insurer to prove driver's licence status",
+          "verdict": "supported",
+          "source_chunk_id": "doc_035",
+          "reasoning": "Onus on insurer"
+        },
+        {
+          "claim": "doc_043 suggests employer is responsible for servant's acts",
+          "verdict": "supported",
+          "source_chunk_id": "doc_043",
+          "reasoning": "Employer's responsibility"
+        },
+        {
+          "claim": "doc_003 states owner must ensure vehicle is driven by licensed driver",
+          "verdict": "supported",
+          "source_chunk_id": "doc_003",
+          "reasoning": "Owner's responsibility"
+        },
+        {
+          "claim": "doc_032 holds that breach of licence condition can lead to insurer escaping liability",
+          "verdict": "supported",
+          "source_chunk_id": "doc_032",
+          "reasoning": "Breach of condition"
+        },
+        {
+          "claim": "Section 3 of the Act requires a driver to satisfy certain provisions",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "No source found"
+        },
+        {
+          "claim": "Section 4 of the Act requires a driver to satisfy certain provisions",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "No source found"
+        },
+        {
+          "claim": "doc_006 indicates legislative intent to protect accident victims",
+          "verdict": "supported",
+          "source_chunk_id": "doc_006",
+          "reasoning": "Legislative intent"
+        },
+        {
+          "claim": "doc_035 requires insurer to prove breach of policy conditions",
+          "verdict": "supported",
+          "source_chunk_id": "doc_035",
+          "reasoning": "Onus on insurer"
+        }
+      ],
+      "citation_score": 0.0,
+      "citation_reasoning": "0/7 citations verified. Failed: ['DOC_027', 'DOC_006', 'DOC_035', 'DOC_043', 'DOC_003', 'DOC_032', 'DOC_025']",
+      "citation_verdicts": [
+        {
+          "doc_id": "DOC_027",
+          "attributed_principle": "**doc_027**\n The client's case is strong, as supported by precedents such as doc_027, doc_006, doc_035, doc_043, and doc_003, which collectively establish that an insurer cannot escape liability simply because the truck driver was unlicensed in a commercial vehicle accident resulting in death.",
+          "verified": false,
+          "reasoning": "The text from document DOC_027 does not support the claim that an insurer cannot escape liability simply because the truck driver was unlicensed in a commercial vehicle accident resulting in death, as it actually presents a case where the insurance company is resisting the claim petition based on the driver's lack of a valid license to drive a heavy motor goods vehicle."
+        },
+        {
+          "doc_id": "DOC_006",
+          "attributed_principle": "**doc_006**\n The client's case is strong, as supported by precedents such as doc_027, doc_006, doc_035, doc_043, and doc_003, which collectively establish that an insurer cannot escape liability simply because the truck driver was unlicensed in a commercial vehicle accident resulting in death.",
+          "verified": false,
+          "reasoning": "The text from document DOC_006 does not mention a commercial vehicle accident involving an unlicensed truck driver, and therefore does not support the claim that an insurer cannot escape liability in such a scenario."
+        },
+        {
+          "doc_id": "DOC_035",
+          "attributed_principle": "**doc_035**\n The client's case is strong, as supported by precedents such as doc_027, doc_006, doc_035, doc_043, and doc_003, which collectively establish that an insurer cannot escape liability simply because the truck driver was unlicensed in a commercial vehicle accident resulting in death.",
+          "verified": false,
+          "reasoning": "The text from document DOC_035 does not mention a commercial vehicle accident resulting in death, but rather a tourist maxi cab accident resulting in injuries, and therefore does not support the claim."
+        },
+        {
+          "doc_id": "DOC_043",
+          "attributed_principle": "**doc_043**\n The client's case is strong, as supported by precedents such as doc_027, doc_006, doc_035, doc_043, and doc_003, which collectively establish that an insurer cannot escape liability simply because the truck driver was unlicensed in a commercial vehicle accident resulting in death.",
+          "verified": false,
+          "reasoning": "The text from document DOC_043 does not mention anything about an insurer escaping liability due to a truck driver being unlicensed in a commercial vehicle accident resulting in death, and therefore does not support the claim."
+        },
+        {
+          "doc_id": "DOC_003",
+          "attributed_principle": "**doc_003**\n The client's case is strong, as supported by precedents such as doc_027, doc_006, doc_035, doc_043, and doc_003, which collectively establish that an insurer cannot escape liability simply because the truck driver was unlicensed in a commercial vehicle accident resulting in death.",
+          "verified": false,
+          "reasoning": "The text from document DOC_003 does not explicitly state that an insurer cannot escape liability simply because the truck driver was unlicensed in a commercial vehicle accident resulting in death, it only mentions that the insurance company defended the case by contending that the driver did not have a valid license."
+        },
+        {
+          "doc_id": "DOC_032",
+          "attributed_principle": "**doc_032**\n - Distinguish the facts of doc_032 by arguing that the High Court's observation regarding the requirement for a commercial vehicle driver to hold an appropriate licence does not necessarily lead to the insurance company escaping liability in our case, given the compulsory nature of third-party insurance under the Motor Vehicles Act, 1988 (doc_006).",
+          "verified": false,
+          "reasoning": "The text from document DOC_032 does not mention the High Court's observation regarding the requirement for a commercial vehicle driver to hold an appropriate licence, nor does it discuss the distinction between the facts of DOC_032 and the compulsory nature of third-party insurance under the Motor Vehicles Act, 1988, as claimed."
+        },
+        {
+          "doc_id": "DOC_025",
+          "attributed_principle": "**doc_025**\n - Argue that the breach of policy conditions in our case is not fundamental, as per Section 149(2) of the Act, and thus the Insurance Company remains liable to pay compensation, contrary to the implication of doc_025.",
+          "verified": false,
+          "reasoning": "The text from document DOC_025 does not support the claim that the breach of policy conditions is not fundamental as per Section 149(2) of the Act, but rather discusses the distinction between subsections (1) and (2) of Section 149 of the Motor Vehicles Act, 1988, in the context of an insurance company's liability."
+        }
+      ],
+      "overall_score": 0.704,
+      "latency_seconds": 7.9
+    },
+    {
+      "case_id": "case_02_compensation",
+      "description": "Compensation quantum calculation",
+      "route": "precedent_research",
+      "n_retrieved": 26,
+      "n_supporting": 5,
+      "n_adverse": 0,
+      "precision_score": 0.2,
+      "precision_reasoning": "Recovered via regex (JSON malformed): Could not extract valid JSON: line 1 column 1 (char 0)",
+      "recall_score": 1.0,
+      "recall_reasoning": "Oracle: ['doc_001', 'doc_004', 'doc_006', 'doc_007', 'doc_008', 'doc_011', 'doc_012', 'doc_019', 'doc_021', 'doc_023', 'doc_033', 'doc_034', 'doc_039', 'doc_041'] | Agent: ['doc_001', 'doc_003', 'doc_004', 'doc_006', 'doc_007', 'doc_008', 'doc_009', 'doc_010', 'doc_011', 'doc_012', 'doc_014', 'doc_018', 'doc_019', 'doc_020', 'doc_021', 'doc_022', 'doc_023', 'doc_024', 'doc_027', 'doc_029', 'doc_032', 'doc_033', 'doc_034', 'doc_035', 'doc_039', 'doc_041'] | Overlap: ['doc_001', 'doc_004', 'doc_006', 'doc_007', 'doc_008', 'doc_011', 'doc_012', 'doc_019', 'doc_021', 'doc_023', 'doc_033', 'doc_034', 'doc_039', 'doc_041'] | Recall = 14/14 = 1.00",
+      "reasoning_quality_score": 0.8,
+      "reasoning_quality_feedback": "Recovered via regex (JSON malformed): Could not extract valid JSON: line 1 column 1 (char 0)",
+      "adverse_id_score": 0.8,
+      "adverse_id_reasoning": "Not required for this query type.",
+      "faithfulness_score": 0.9,
+      "faithfulness_reasoning": "9 supported, 0 partially supported, 1 unsupported out of 10 claims. Score = 0.90",
+      "claim_verdicts": [
+        {
+          "claim": "doc_008 uses 'operative multiplier' principle",
+          "verdict": "supported",
+          "source_chunk_id": "doc_008",
+          "reasoning": "explicitly stated"
+        },
+        {
+          "claim": "doc_039 uses multiplier method",
+          "verdict": "supported",
+          "source_chunk_id": "doc_039",
+          "reasoning": "clearly mentioned"
+        },
+        {
+          "claim": "doc_019 cites Sarla Verma",
+          "verdict": "supported",
+          "source_chunk_id": "doc_019",
+          "reasoning": "direct reference"
+        },
+        {
+          "claim": "doc_035 mentions Rs. 4,500/- monthly salary",
+          "verdict": "supported",
+          "source_chunk_id": "doc_035",
+          "reasoning": "exact figure"
+        },
+        {
+          "claim": "doc_004 presumes Rs. 3500/- monthly income",
+          "verdict": "supported",
+          "source_chunk_id": "doc_004",
+          "reasoning": "clear assumption"
+        },
+        {
+          "claim": "doc_039 allows rare departures",
+          "verdict": "supported",
+          "source_chunk_id": "doc_039",
+          "reasoning": "stated exception"
+        },
+        {
+          "claim": "doc_019 requires standard multiplier method",
+          "verdict": "supported",
+          "source_chunk_id": "doc_019",
+          "reasoning": "clear requirement"
+        },
+        {
+          "claim": "doc_008 determines dependent compensation",
+          "verdict": "supported",
+          "source_chunk_id": "doc_008",
+          "reasoning": "clear purpose"
+        },
+        {
+          "claim": "doc_039 calculates 'just' compensation",
+          "verdict": "supported",
+          "source_chunk_id": "doc_039",
+          "reasoning": "clear goal"
+        },
+        {
+          "claim": "doc_019 approves standard expense deductions",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "not mentioned"
+        }
+      ],
+      "citation_score": 0.0,
+      "citation_reasoning": "0/5 citations verified. Failed: ['DOC_008', 'DOC_039', 'DOC_019', 'DOC_035', 'DOC_004']",
+      "citation_verdicts": [
+        {
+          "doc_id": "DOC_008",
+          "attributed_principle": "**doc_008**\n The client's case appears to be strong, as the supporting precedents (doc_008, doc_039, doc_019, doc_035, and doc_004) provide a clear framework for determining compensation in cases involving the death of a breadwinner.",
+          "verified": false,
+          "reasoning": "The text from document DOC_008 does not provide a clear framework for determining compensation in cases involving the death of a breadwinner, but rather discusses the implications of previous court decisions on the calculation of compensation."
+        },
+        {
+          "doc_id": "DOC_039",
+          "attributed_principle": "**doc_039**\n The client's case appears to be strong, as the supporting precedents (doc_008, doc_039, doc_019, doc_035, and doc_004) provide a clear framework for determining compensation in cases involving the death of a breadwinner.",
+          "verified": false,
+          "reasoning": "The text from document DOC_039 does not provide a clear framework for determining compensation in cases involving the death of a breadwinner, but rather presents a specific case and argues for adequate compensation."
+        },
+        {
+          "doc_id": "DOC_019",
+          "attributed_principle": "**doc_019**\n The client's case appears to be strong, as the supporting precedents (doc_008, doc_039, doc_019, doc_035, and doc_004) provide a clear framework for determining compensation in cases involving the death of a breadwinner.",
+          "verified": false,
+          "reasoning": "The text from document DOC_019 does not provide a clear framework for determining compensation in cases involving the death of a breadwinner, but rather presents a judicial decision on specific cases involving motor vehicle accidents and the application of multipliers to determine compensation."
+        },
+        {
+          "doc_id": "DOC_035",
+          "attributed_principle": "**doc_035**\n The client's case appears to be strong, as the supporting precedents (doc_008, doc_039, doc_019, doc_035, and doc_004) provide a clear framework for determining compensation in cases involving the death of a breadwinner.",
+          "verified": false,
+          "reasoning": "The text from document DOC_035 does not provide a clear framework for determining compensation in cases involving the death of a breadwinner, but rather appears to be a judgment in a specific motor accident claims case."
+        },
+        {
+          "doc_id": "DOC_004",
+          "attributed_principle": "**doc_004**\n The client's case appears to be strong, as the supporting precedents (doc_008, doc_039, doc_019, doc_035, and doc_004) provide a clear framework for determining compensation in cases involving the death of a breadwinner.",
+          "verified": false,
+          "reasoning": "The text from document DOC_004 does not provide a clear framework for determining compensation in cases involving the death of a breadwinner, but rather presents a specific court case and its details."
+        }
+      ],
+      "overall_score": 0.617,
+      "latency_seconds": 26.4
+    },
+    {
+      "case_id": "case_03_adverse_identification",
+      "description": "Adverse precedent identification test",
+      "route": "precedent_research",
+      "n_retrieved": 24,
+      "n_supporting": 7,
+      "n_adverse": 2,
+      "precision_score": 0.4,
+      "precision_reasoning": "Recovered via regex (JSON malformed): Could not extract valid JSON: line 1 column 1 (char 0)",
+      "recall_score": 1.0,
+      "recall_reasoning": "Oracle: ['doc_003', 'doc_006', 'doc_025', 'doc_027', 'doc_029', 'doc_032', 'doc_034', 'doc_035'] | Agent: ['doc_001', 'doc_003', 'doc_004', 'doc_006', 'doc_007', 'doc_010', 'doc_011', 'doc_012', 'doc_018', 'doc_019', 'doc_020', 'doc_022', 'doc_023', 'doc_024', 'doc_025', 'doc_027', 'doc_029', 'doc_031', 'doc_032', 'doc_033', 'doc_034', 'doc_035', 'doc_039', 'doc_042'] | Overlap: ['doc_003', 'doc_006', 'doc_025', 'doc_027', 'doc_029', 'doc_032', 'doc_034', 'doc_035'] | Recall = 8/8 = 1.00",
+      "reasoning_quality_score": 0.4,
+      "reasoning_quality_feedback": "Recovered via regex (JSON malformed): Could not extract valid JSON: line 1 column 1 (char 0)",
+      "adverse_id_score": 0.8,
+      "adverse_id_reasoning": "good 'adverse identification' with 'why' and 'how to distinguish' explained",
+      "faithfulness_score": 0.5,
+      "faithfulness_reasoning": "5 supported, 0 partially supported, 5 unsupported out of 10 claims. Score = 0.50",
+      "claim_verdicts": [
+        {
+          "claim": "Chapter XI of Motor Vehicles Act, 1988 provides compulsory insurance",
+          "verdict": "supported",
+          "source_chunk_id": "doc_006",
+          "reasoning": "Found in doc_006"
+        },
+        {
+          "claim": "Motor Vehicles Act, 1988 is social welfare legislation",
+          "verdict": "supported",
+          "source_chunk_id": "doc_006",
+          "reasoning": "Found in doc_006"
+        },
+        {
+          "claim": "Chapter XI provides relief by compensation to victims",
+          "verdict": "supported",
+          "source_chunk_id": "doc_006",
+          "reasoning": "Found in doc_006"
+        },
+        {
+          "claim": "Insurer liability prioritizes compensation to victims",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Not found"
+        },
+        {
+          "claim": "Tribunal directs insurer to pay compensation to third-party victim",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Not found"
+        },
+        {
+          "claim": "Motor Vehicles Act, 1988 extends relief to accident victims",
+          "verdict": "supported",
+          "source_chunk_id": "doc_006",
+          "reasoning": "Found in doc_006"
+        },
+        {
+          "claim": "Chapter XI prioritizes compensation to third-party victims",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Not found"
+        },
+        {
+          "claim": "Insurer cannot avoid third-party liability",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Not found"
+        },
+        {
+          "claim": "Compulsory insurance is against third-party risks",
+          "verdict": "supported",
+          "source_chunk_id": "doc_006",
+          "reasoning": "Found in doc_006"
+        },
+        {
+          "claim": "Social welfare aspect supports client's position",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Not found"
+        }
+      ],
+      "citation_score": 0.0,
+      "citation_reasoning": "0/9 citations verified. Failed: ['DOC_006', 'DOC_032', 'DOC_031', 'DOC_029', 'DOC_035', 'DOC_025', 'DOC_024', 'DOC_034', 'DOC_003']",
+      "citation_verdicts": [
+        {
+          "doc_id": "DOC_006",
+          "attributed_principle": "**doc_006**\n The client's case appears to be strong, given the emphasis on Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents (as seen in doc_006, doc_032, doc_031, doc_029, doc_035, and doc_025).",
+          "verified": false,
+          "reasoning": "The text from document DOC_006 does not mention Chapter XI of the Motor Vehicles Act, 1988, or describe it as social welfare legislation aimed at providing relief by compensation to victims of accidents."
+        },
+        {
+          "doc_id": "DOC_032",
+          "attributed_principle": "**doc_032**\n The client's case appears to be strong, given the emphasis on Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents (as seen in doc_006, doc_032, doc_031, doc_029, doc_035, and doc_025).",
+          "verified": false,
+          "reasoning": "The actual text from document DOC_032 does not mention Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents."
+        },
+        {
+          "doc_id": "DOC_031",
+          "attributed_principle": "**doc_031**\n The client's case appears to be strong, given the emphasis on Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents (as seen in doc_006, doc_032, doc_031, doc_029, doc_035, and doc_025).",
+          "verified": false,
+          "reasoning": "The document text does not mention Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents."
+        },
+        {
+          "doc_id": "DOC_029",
+          "attributed_principle": "**doc_029**\n The client's case appears to be strong, given the emphasis on Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents (as seen in doc_006, doc_032, doc_031, doc_029, doc_035, and doc_025).",
+          "verified": false,
+          "reasoning": "The document text does not mention Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents."
+        },
+        {
+          "doc_id": "DOC_035",
+          "attributed_principle": "**doc_035**\n The client's case appears to be strong, given the emphasis on Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents (as seen in doc_006, doc_032, doc_031, doc_029, doc_035, and doc_025).",
+          "verified": false,
+          "reasoning": "The document text does not mention Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents."
+        },
+        {
+          "doc_id": "DOC_025",
+          "attributed_principle": "**doc_025**\n The client's case appears to be strong, given the emphasis on Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents (as seen in doc_006, doc_032, doc_031, doc_029, doc_035, and doc_025).",
+          "verified": false,
+          "reasoning": "The document text does not mention Chapter XI of the Motor Vehicles Act, 1988, as a social welfare legislation aimed at providing relief by compensation to victims of accidents."
+        },
+        {
+          "doc_id": "DOC_024",
+          "attributed_principle": "**doc_024**\n  **Insurer's Liability**: Argue that the insurer's liability should not be negated due to the driver's lack of a valid driving license, as the primary goal is to compensate third-party victims, supported by doc_024.",
+          "verified": false,
+          "reasoning": "The actual text from document DOC_024 does not discuss the insurer's liability in relation to a driver's lack of a valid driving license, so it does not support the claim."
+        },
+        {
+          "doc_id": "DOC_034",
+          "attributed_principle": "**doc_034**\n  **Distinguish Facts**: For doc_034, argue that the breach of the insurance policy condition regarding unlicensed drivers may not directly apply to the current case, as the focus is on the social welfare aspect of providing compensation to victims.",
+          "verified": false,
+          "reasoning": "The actual text from document DOC_034 does not discuss the social welfare aspect of providing compensation to victims, but rather focuses on a specific motor accident case and the liability of the insurance company due to a breach of policy conditions."
+        },
+        {
+          "doc_id": "DOC_003",
+          "attributed_principle": "**doc_003**\n  **Argue Exceptions**: In response to doc_003, contend that while the driver's lack of a valid driving license is a significant factor, it should not override the insurer's liability to compensate third-party victims, given the social welfare intent of the legislation.",
+          "verified": false,
+          "reasoning": "The actual text from document DOC_003 does not discuss the social welfare intent of the legislation or the insurer's liability to compensate third-party victims in relation to a driver's lack of a valid driving license."
+        }
+      ],
+      "overall_score": 0.517,
+      "latency_seconds": 33.2
+    },
+    {
+      "case_id": "case_04_commercial_vehicle_filter",
+      "description": "Factual document search",
+      "route": "document_search",
+      "n_retrieved": 15,
+      "n_supporting": 0,
+      "n_adverse": 0,
+      "precision_score": 0.533,
+      "precision_reasoning": "Most judgments are relevant to the query, but some are not directly related to commercial vehicles.",
+      "recall_score": 0.75,
+      "recall_reasoning": "Oracle: ['doc_006', 'doc_029', 'doc_034', 'doc_035'] | Agent: ['doc_012', 'doc_018', 'doc_021', 'doc_022', 'doc_025', 'doc_027', 'doc_029', 'doc_034', 'doc_035', 'doc_041'] | Overlap: ['doc_029', 'doc_034', 'doc_035'] | Recall = 3/4 = 0.75",
+      "reasoning_quality_score": 0.6,
+      "reasoning_quality_feedback": "Cites specific doc IDs, but fails to provide the actual documents. Arguments are logically coherent, but lacks actionable guidance.",
+      "adverse_id_score": 0.8,
+      "adverse_id_reasoning": "Not required for this query type.",
+      "faithfulness_score": 0.2,
+      "faithfulness_reasoning": "2 supported, 0 partially supported, 8 unsupported out of 10 claims. Score = 0.20",
+      "claim_verdicts": [
+        {
+          "claim": "DOC_027 refers to a 'heavy goods vehicle' in paragraph 15.",
+          "verdict": "unsupported",
+          "source_chunk_id": "doc_027",
+          "reasoning": "Claim is explicitly stated in the source."
+        },
+        {
+          "claim": "DOC_027 refers to a 'lorry' in paragraph 8.",
+          "verdict": "unsupported",
+          "source_chunk_id": "doc_027",
+          "reasoning": "Claim is explicitly stated in the source."
+        },
+        {
+          "claim": "DOC_029 defines a 'goods carriage' in paragraph 33.",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Paragraph 33 is not present in the source."
+        },
+        {
+          "claim": "DOC_029 defines a 'transport vehicle' in paragraph 29.",
+          "verdict": "unsupported",
+          "source_chunk_id": "doc_029",
+          "reasoning": "Claim is explicitly stated in the source."
+        },
+        {
+          "claim": "DOC_018 refers to a 'Truck driver' in paragraph 31.",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Paragraph 31 is not present in the source."
+        },
+        {
+          "claim": "DOC_027 has a score of 0.76.",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Score is not mentioned in the source."
+        },
+        {
+          "claim": "DOC_029 has a score of 0.58.",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Score is not mentioned in the source."
+        },
+        {
+          "claim": "DOC_018 has a score of 0.75.",
+          "verdict": "unsupported",
+          "source_chunk_id": "",
+          "reasoning": "Score is not mentioned in the source."
+        },
+        {
+          "claim": "DOC_027 is a judgment that involves commercial vehicles.",
+          "verdict": "supported",
+          "source_chunk_id": "doc_027",
+          "reasoning": "Heavy goods vehicle is defined in the source."
+        },
+        {
+          "claim": "DOC_029 is a judgment that involves commercial vehicles.",
+          "verdict": "supported",
+          "source_chunk_id": "doc_029",
+          "reasoning": "Stage carriage and transport vehicle are defined in the source."
+        }
+      ],
+      "citation_score": 0.0,
+      "citation_reasoning": "0/4 citations verified. Failed: ['DOC_027', 'DOC_029', 'DOC_031', 'DOC_018']",
+      "citation_verdicts": [
+        {
+          "doc_id": "DOC_027",
+          "attributed_principle": "- DOC_027 (score: 0.",
+          "verified": false,
+          "reasoning": "The text from document DOC_027 does not support the claim above as it does not contain a score."
+        },
+        {
+          "doc_id": "DOC_029",
+          "attributed_principle": "- DOC_029 (score: 0.",
+          "verified": false,
+          "reasoning": "Verification parse error: litellm.RateLimitError: RateLimitError: GroqException - {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kpht33eefb2b6qdefnfvakjp` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99401, Requested 1311. Please try again in 10m15.168s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n"
+        },
+        {
+          "doc_id": "DOC_031",
+          "attributed_principle": "- DOC_031 (score: 0. 58) - Not provided, but DOC_031 is not present in the given excerpts.",
+          "verified": false,
+          "reasoning": "Verification parse error: litellm.RateLimitError: RateLimitError: GroqException - {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kpht33eefb2b6qdefnfvakjp` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99401, Requested 1698. Please try again in 15m49.536s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n"
+        },
+        {
+          "doc_id": "DOC_018",
+          "attributed_principle": "- DOC_018 (score: 0.",
+          "verified": false,
+          "reasoning": "Verification parse error: litellm.RateLimitError: RateLimitError: GroqException - {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kpht33eefb2b6qdefnfvakjp` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99401, Requested 1420. Please try again in 11m49.344s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n"
+        }
+      ],
+      "overall_score": 0.481,
+      "latency_seconds": 51.1
+    },
+    {
+      "case_id": "case_05_full_case_brief",
+      "error": "litellm.RateLimitError: RateLimitError: GroqException - {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kpht33eefb2b6qdefnfvakjp` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99401, Requested 1779. Please try again in 16m59.52s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n"
+    }
+  ]
+}

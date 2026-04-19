@@ -1,0 +1,13 @@
+.env
+.streamlit/secrets.toml
+chroma_db/
+docs/
+!docs/README.md
+__pycache__/
+*.pyc
+.DS_Store
+**/.DS_Store
+*.egg-info/
+dist/
+build/
+.venv/
